@@ -11,6 +11,10 @@ Post.init(
             primaryKey: true,
             autoIncrement: true,
         },
+        title: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         content: {
             type: DataTypes.TEXT,
             allowNull: false,
@@ -22,6 +26,11 @@ Post.init(
                 key: 'id',
             },
         },
+        date_created: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: DataTypes.NOW,
+          },
     },
     {
         sequelize,

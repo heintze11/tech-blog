@@ -9,7 +9,6 @@ User.hasMany(Post, {
 
 Post.belongsTo(User, {
   foreignKey: 'user_id',
-  onDelete: 'CASCADE'
 });
 
 User.hasMany(Comments, {
@@ -19,7 +18,6 @@ User.hasMany(Comments, {
 
 Comments.belongsTo(User, {
   foreignKey: 'user_id',
-  onDelete: 'CASCADE'
 });
 
 Post.hasMany(Comments, {
@@ -29,7 +27,6 @@ Post.hasMany(Comments, {
 
 Comments.belongsTo(Post, {
   foreignKey: 'post_id',
-  onDelete: 'CASCADE'
 });
 
 module.exports = { User, Post, Comments };

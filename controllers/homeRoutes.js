@@ -7,15 +7,16 @@ router.get('/', async (req, res) => {
     try {
         const postData = await Post.findAll({ include: User });
         const posts = postData.map((post) => post.get({ plain: true }));
-        res.render('homepage', { posts });
+        res.json({posts});
+        // res.render('homepage', { posts });
 
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
     }
 });
-
-router.get ('/post/:id', async (req, res) => {
+// include user and comments (add user to comments)
+router.get ('/post/:id', auth, async (req, res) => {
     try {
         const postData = await Post.findByPk({
             include: [
@@ -24,7 +25,7 @@ router.get ('/post/:id', async (req, res) => {
               ]
         });
         const post = postData.get({ plain: true });
-        res.render('post', { post, logged_in: req.session.logged_in });
+        res.render('post', { post, logged_in: true });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);

@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
 
 router.get ('/post/:id', async (req, res) => {
     try {
-        const postData = await Post.findAll({
+        const postData = await Post.findByPk({
             include: [
                 { model: User },
                 { model: Comments }
@@ -30,3 +30,15 @@ router.get ('/post/:id', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+router.get ('/login', (req, res) => {
+    if (req.session.logged_in) {
+        res.redirect('/');
+        return;
+    }
+    res.render('login');
+});
+
+
+
+module.exports = router;

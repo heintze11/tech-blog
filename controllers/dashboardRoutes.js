@@ -9,9 +9,7 @@ router.get('/', auth, async (req, res) => {
                 userId: req.session.userId,
             },
         });
-
         const posts = postData.map((post) => post.get({ plain: true }));
-
         res.render('allPosts', {
             layout: 'dashboard',
             posts,
@@ -33,7 +31,6 @@ router.get('/edit/:id', auth, async (req, res) => {
 
         if (postData) {
             const post = postData.get({ plain: true });
-
             res.render('editPost', {
                 layout: 'dashboard',
                 post,

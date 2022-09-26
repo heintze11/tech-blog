@@ -1,8 +1,10 @@
 <div>
+    {{#each posts}}
     <ul>
-        {{#each posts}}
         <li>{{title}}</li>
         <li>{{content}}</li>
-        {{/each}}
+        <li>{{User.userName}}</li>
+        <li>{{date_created}}</li>
     </ul>
+    {{/each}}
 </div>

@@ -1,7 +1,17 @@
 [
     {
+      "title": "Testing Coding",
+      "content": "This blog is up and running!",
+      "user_id": 2
+    },
+    {
+      "title": "Piece of cake",
+      "content": "This is easy stuff. I mean it only takes days to do it.",
+      "user_id": 3
+    },
+    {
       "title": "JS is Fun",
       "content": "Learning javascript is so much fun, I can't contain myself!",
-      "user_id": 2
+      "user_id": 1
     }
   ]

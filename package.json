@@ -5,9 +5,10 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
-    "develop": "npm run seed&&npm start",
-    "seed": "node ./seeds/seed.js"
+    "start": "npm server.js",
+    "develop": "npm run seed&&npm run watch",
+    "seed": "node ./seeds/seed.js",
+    "watch": "nodemon server.js"
   },
   "repository": {
     "type": "git",

@@ -4,7 +4,9 @@ const auth = require('../../utils/auth');
 
 router.post('/', auth, async (req, res) => {
     const body = req.body;
-
+// post title, post comment, user ID
+// ({title: body.title, comment: body.comment})
+// spread operator
     try {
         const newPost = await Post.create({ ...body, userId: req.session.userId });
         res.json(newPost);

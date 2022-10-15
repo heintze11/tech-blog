@@ -9,7 +9,6 @@ router.get('/', async (req, res) => {
 
         const posts = postData.map((post) => post.get({ plain: true }));
         // res.json({posts});
-        console.log(posts);
         res.render('homepage', { posts });
 
     } catch (err) {
@@ -17,7 +16,7 @@ router.get('/', async (req, res) => {
         res.status(500).json(err);
     }
 });
-// include user and comments
+// include user and comments by user
 router.get ('/post/:id', auth, async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id, {

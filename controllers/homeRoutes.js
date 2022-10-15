@@ -38,7 +38,7 @@ router.get ('/post/:id', auth, async (req, res) => {
 
 router.get ('/login', (req, res) => {
     if (req.session.logged_in) {
-        res.redirect('/');
+        res.redirect('/homepage');
         return;
     }
     res.render('login');
@@ -50,7 +50,7 @@ router.get('/signup', (req, res) => {
       return;
     }
   
-    res.render('signup');
+    res.render('signUp');
   });
 
 module.exports = router;

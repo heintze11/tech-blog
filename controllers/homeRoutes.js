@@ -8,7 +8,6 @@ router.get('/', async (req, res) => {
         const postData = await Post.findAll({ include: [User] });
 
         const posts = postData.map((post) => post.get({ plain: true }));
-        // res.json({posts});
         res.render('homepage', { posts });
 
     } catch (err) {
@@ -52,5 +51,14 @@ router.get('/signup', (req, res) => {
   
     res.render('signUp');
   });
+
+  router.get('/dashboard', auth, async (req, res) => {
+    if (req.session.logged_in) {
+        res.render('dashboard', req.session);
+        return;
+      }
+    
+      res.render('login');
+    });
 
 module.exports = router;
